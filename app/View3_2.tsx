@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { z } from "zod";
 import { sortSchema3 } from "../shared/schemas";
 import { Projekt, Prowadzacy } from "@prisma/client";
-import { Arrow } from "../shared/icons/Arrow";
 import SortButton from "../shared/components/SortButton";
 
 async function getTeachers(sort?: string, order?: boolean) {

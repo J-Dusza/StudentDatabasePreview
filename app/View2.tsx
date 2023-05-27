@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { z } from "zod";
 import { sortSchema2 } from "../shared/schemas";
 import { Student } from "@prisma/client";
-import { Arrow } from "../shared/icons/Arrow";
 import SortButton from "../shared/components/SortButton";
 
 async function getStudentsGroups(sort?: string, order?: boolean) {
