@@ -1,0 +1,41 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Grupa {
+  id       Int       @id @default(autoincrement())
+  nazwa    String
+  studenci Student[]
+}
+
+model Student {
+  id       Int       @id @default(autoincrement())
+  nazwa    String
+  imie     String
+  srednia  Float
+  grupa    Grupa     @relation(fields: [id_grupa], references: [id])
+  id_grupa Int
+  projekty Projekt[]
+}
+
+model Prowadzacy {
+  id       Int       @id @default(autoincrement())
+  nazwisko String
+  imie     String
+  projekty Projekt[]
+}
+
+model Projekt {
+  id            Int        @id @default(autoincrement())
+  temat         String
+  punkty        Int
+  student       Student    @relation(fields: [id_student], references: [id])
+  id_student    Int
+  prowadzacy    Prowadzacy @relation(fields: [id_prowadzacy], references: [id])
+  id_prowadzacy Int
+}
