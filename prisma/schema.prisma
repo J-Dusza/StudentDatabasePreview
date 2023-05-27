@@ -8,34 +8,34 @@ datasource db {
 }
 
 model Grupa {
-  id       Int       @id @default(autoincrement())
+  id       String    @id @default(cuid())
   nazwa    String
   studenci Student[]
 }
 
 model Student {
-  id       Int       @id @default(autoincrement())
-  nazwa    String
+  id       String   @id @default(cuid())
+  nazwisko String   @default("")
   imie     String
   srednia  Float
-  grupa    Grupa     @relation(fields: [id_grupa], references: [id])
-  id_grupa Int
-  projekty Projekt[]
+  grupa    Grupa?   @relation(fields: [id_grupa], references: [id])
+  id_grupa String?
+  projekt  Projekt?
 }
 
 model Prowadzacy {
-  id       Int       @id @default(autoincrement())
+  id       String    @id @default(cuid())
   nazwisko String
   imie     String
   projekty Projekt[]
 }
 
 model Projekt {
-  id            Int        @id @default(autoincrement())
+  id            String     @id @default(cuid())
   temat         String
   punkty        Int
-  student       Student    @relation(fields: [id_student], references: [id])
-  id_student    Int
+  student       Student?   @relation(fields: [id_student], references: [id])
+  id_student    String?    @unique
   prowadzacy    Prowadzacy @relation(fields: [id_prowadzacy], references: [id])
-  id_prowadzacy Int
+  id_prowadzacy String
 }
