@@ -40,7 +40,7 @@ const View2 = () => {
   };
 
   return (
-    <div className="overflow-x-auto w-full px-20 max-w-5xl">
+    <div className="overflow-x-auto w-screen px-20 max-w-4xl">
       <table className="table w-full">
         {/* head */}
         <thead>

@@ -54,11 +54,6 @@ async function main() {
       nazwisko: "Smith",
       imie: "John",
       srednia: 4.2,
-      grupa: {
-        connect: {
-          id: grupa2.id,
-        },
-      },
     },
   });
   const student4 = await prisma.student.create({
@@ -66,6 +61,11 @@ async function main() {
       nazwisko: "Małopolski",
       imie: "Paweł",
       srednia: 4.8,
+      grupa: {
+        connect: {
+          id: grupa3.id,
+        },
+      },
     },
   });
   const student5 = await prisma.student.create({
@@ -73,6 +73,11 @@ async function main() {
       nazwisko: "Wiśniewski",
       imie: "Mikołaj",
       srednia: 4.9,
+      grupa: {
+        connect: {
+          id: grupa2.id,
+        },
+      },
     },
   });
   const student6 = await prisma.student.create({
@@ -80,6 +85,11 @@ async function main() {
       nazwisko: "Kamiński",
       imie: "Ignacy",
       srednia: 3.9,
+      grupa: {
+        connect: {
+          id: grupa3.id,
+        },
+      },
     },
   });
   const student7 = await prisma.student.create({
@@ -195,6 +205,7 @@ async function main() {
       },
     },
   });
+
   const projekt4_2 = await prisma.projekt.create({
     data: {
       temat: "System monitorowania i zarządzania zużyciem energii w budynkach",

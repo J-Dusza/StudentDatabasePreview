@@ -40,7 +40,7 @@ const View1 = () => {
   };
 
   return (
-    <div className="overflow-x-auto w-full px-20 max-w-5xl">
+    <div className="overflow-x-auto w-screen px-20 max-w-4xl">
       <table className="table w-full">
         {/* head */}
         <thead>
@@ -88,7 +88,7 @@ const View1 = () => {
           </tr>
         </thead>
         <tbody>
-          {students?.map((student: any) => (
+          {students?.map((student: any, idx) => (
             <tr className="hover" key={student.id}>
               <td>{student.imie}</td>
               <td>{student.nazwisko}</td>

@@ -5,7 +5,7 @@ import { Projekt, Prowadzacy } from "@prisma/client";
 import { Arrow } from "../shared/icons/Arrow";
 import SortButton from "../shared/components/SortButton";
 
-async function getStudentsProjects(sort?: string, order?: boolean) {
+async function getTeachers(sort?: string, order?: boolean) {
   const parsedSort = sortSchema3.safeParse(sort);
   if (parsedSort.success === false) {
     const res = await fetch("/api/getTeachers");
@@ -24,7 +24,7 @@ const View3_2 = () => {
   const [direction, setDirection] = useState<boolean>(false);
 
   useEffect(() => {
-    getStudentsProjects(sort, direction).then((response) => {
+    getTeachers(sort, direction).then((response) => {
       setTeachers(response.students);
     });
   }, [sort, direction]);
@@ -40,7 +40,7 @@ const View3_2 = () => {
   };
 
   return (
-    <div className="overflow-x-auto w-full px-20 max-w-5xl">
+    <div className="overflow-x-auto w-screen px-20 max-w-4xl">
       <table className="table w-full">
         {/* head */}
         <thead>
