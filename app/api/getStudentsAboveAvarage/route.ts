@@ -39,14 +39,21 @@ export async function GET(request: NextRequest) {
     .exhaustive();
 
   try {
-    const students = await prisma.$queryRaw(
-      Prisma.sql`   SELECT s.imie, s.nazwisko, s.srednia
-                    FROM Student s
-                    GROUP BY s.imie, s.nazwisko
-                    HAVING s.srednia > (SELECT AVG(srednia) FROM Student)
+    const average = await prisma.student.aggregate({
+      _avg: {
+        srednia: true,
+      },
+    });
 
-`
-    );
+    const students = await prisma.student.findMany({
+      orderBy,
+      where: {
+        srednia: {
+          gt: average._avg.srednia ?? 0,
+        },
+      },
+    });
+
     console.log(students);
     return NextResponse.json({ students });
   } catch (error) {

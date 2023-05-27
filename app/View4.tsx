@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { sortSchema3, sortSchema4 } from "../shared/schemas";
+import { sortSchema4 } from "../shared/schemas";
 import { Student } from "@prisma/client";
 import SortButton from "../shared/components/SortButton";
 
-async function getStudentsProjects(sort?: string, order?: boolean) {
+async function getStudentsAboveAvarage(sort?: string, order?: boolean) {
   const parsedSort = sortSchema4.safeParse(sort);
   if (parsedSort.success === false) {
     const res = await fetch("/api/getStudentsAboveAvarage");
@@ -24,7 +24,7 @@ const View4 = () => {
   const [direction, setDirection] = useState<boolean>(false);
 
   useEffect(() => {
-    getStudentsProjects(sort, direction).then((response) => {
+    getStudentsAboveAvarage(sort, direction).then((response) => {
       setStudents(response.students);
     });
   }, [sort, direction]);
@@ -79,7 +79,7 @@ const View4 = () => {
         </thead>
         <tbody>
           {students?.map((student: Student) => (
-            <tr key={student.id}>
+            <tr className="hover" key={student.id}>
               <td>{student.imie}</td>
               <td>{student.nazwisko}</td>
               <td>{student.srednia}</td>

@@ -17,6 +17,11 @@ async function main() {
       nazwa: "Grupa 2",
     },
   });
+  const grupa3 = await prisma.grupa.create({
+    data: {
+      nazwa: "Grupa 3",
+    },
+  });
 
   const student1 = await prisma.student.create({
     data: {
@@ -63,6 +68,27 @@ async function main() {
       srednia: 4.8,
     },
   });
+  const student5 = await prisma.student.create({
+    data: {
+      nazwisko: "Wiśniewski",
+      imie: "Mikołaj",
+      srednia: 4.9,
+    },
+  });
+  const student6 = await prisma.student.create({
+    data: {
+      nazwisko: "Kamiński",
+      imie: "Ignacy",
+      srednia: 3.9,
+    },
+  });
+  const student7 = await prisma.student.create({
+    data: {
+      nazwisko: "Olszewski",
+      imie: "Wojciech",
+      srednia: 4.1,
+    },
+  });
 
   const prowadzacy1 = await prisma.prowadzacy.create({
     data: {
@@ -87,7 +113,8 @@ async function main() {
 
   const projekt1 = await prisma.projekt.create({
     data: {
-      temat: "Temat 1",
+      temat:
+        "Aplikacja do wykrywania i kategoryzowania spamu w wiadomościach e-mail",
       punkty: 10,
       student: {
         connect: {
@@ -103,7 +130,8 @@ async function main() {
   });
   const projekt1_2 = await prisma.projekt.create({
     data: {
-      temat: "Temat 1",
+      temat:
+        "Aplikacja do wykrywania i kategoryzowania spamu w wiadomościach e-mail",
       punkty: 10,
       student: {
         connect: {
@@ -120,7 +148,8 @@ async function main() {
 
   const projekt2 = await prisma.projekt.create({
     data: {
-      temat: "Temat 2",
+      temat:
+        "Platforma e-commerce oparta na sztucznej inteligencji do personalizowanych rekomendacji produktów",
       punkty: 8,
       student: {
         connect: {
@@ -136,7 +165,7 @@ async function main() {
   });
   const projekt3 = await prisma.projekt.create({
     data: {
-      temat: "Temat 3",
+      temat: "Aplikacja mobilna do śledzenia codziennych nawyków zdrowotnych",
       punkty: 8,
       student: {
         connect: {
@@ -152,11 +181,11 @@ async function main() {
   });
   const projekt4 = await prisma.projekt.create({
     data: {
-      temat: "Temat 4",
+      temat: "System monitorowania i zarządzania zużyciem energii w budynkach",
       punkty: 8,
       student: {
         connect: {
-          id: student2.id,
+          id: student3.id,
         },
       },
       prowadzacy: {
@@ -168,16 +197,32 @@ async function main() {
   });
   const projekt4_2 = await prisma.projekt.create({
     data: {
-      temat: "Temat 4",
+      temat: "System monitorowania i zarządzania zużyciem energii w budynkach",
       punkty: 8,
       student: {
         connect: {
-          id: student2.id,
+          id: student3.id,
         },
       },
       prowadzacy: {
         connect: {
           id: prowadzacy2.id,
+        },
+      },
+    },
+  });
+  const projekt5 = await prisma.projekt.create({
+    data: {
+      temat: "System zarządzania biblioteką elektroniczną",
+      punkty: 8,
+      student: {
+        connect: {
+          id: student5.id,
+        },
+      },
+      prowadzacy: {
+        connect: {
+          id: prowadzacy3.id,
         },
       },
     },

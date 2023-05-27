@@ -12,25 +12,21 @@ const SortButton = (props: sortButonProps) => {
   return (
     <button
       value={props.value}
-      className=" hover:cursor-pointer w-full h-full text-left uppercase flex items-center justify-between"
+      className=" hover:cursor-pointer w-full h-full text-left uppercase flex items-center gap-3"
       onClick={props.onSortChange}
     >
       {props.children}
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        strokeWidth={2}
-        stroke="currentColor"
-        className={` w-4 h-4 inline 
+        width="13"
+        height="13"
+        fill="currentColor"
+        className={`inline
         ${props.sort === props.value ? "" : "invisible"} 
-        ${props.direction ? " rotate-180" : ""} `}
+        ${props.direction ? " rotate-180" : ""}`}
+        viewBox="0 0 16 16"
       >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M4.5 15.75l7.5-7.5 7.5 7.5"
-        />
+        <path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
       </svg>
     </button>
   );

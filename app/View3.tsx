@@ -79,7 +79,7 @@ const View3 = () => {
         </thead>
         <tbody>
           {projects?.map((project: any) => (
-            <tr key={project.id}>
+            <tr className="hover" key={project.id}>
               <td>{project.temat}</td>
               <td>{project.prowadzacy.nazwisko}</td>
               <td>{project.prowadzacy.imie}</td>

@@ -79,7 +79,7 @@ const View2 = () => {
         </thead>
         <tbody>
           {students?.map((student: any) => (
-            <tr key={student.id}>
+            <tr className="hover" key={student.id}>
               <td>{student.imie}</td>
               <td>{student.nazwisko}</td>
               <td>{student.grupa ? student.grupa.nazwa : "BRAK"}</td>
