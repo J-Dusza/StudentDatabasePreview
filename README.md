@@ -14,7 +14,12 @@ Aby połączyć się z działającą bazą danych, należy skonfigurować plik `
 4. Link który musisz zmodyfikować w pliku `.env` ma następujący schemat
    `"postgresql://[nazwa_użytkownika]:[hasło]@localhost:5432/[nazwa_bazy_danych]?schema=public"`
 
-Po upewnieniu się, że baza danych działa poprawnie, wykonaj następujące polecenia w konsoli, aby zainstalować wymagane moduły, skonfigurować bazę danych i uruchomić aplikację:
+###Jak pobrać npm i uruchomić aplikację
+Jeśli nie masz zainstalowanego menedżera pakietów npm pobierz go ze strony:
+[https://www.nodejs.org/en/download/](https://www.nodejs.org/en/download/)
+Aby upewnić się, że npm został zainstalowany poprawnie uruchom w konsoli komendę `npm -v`. Jeśli w konsoli pojawi się numer wersji npm, oznacza to, że npm został zainstalowany poprawnie.
+
+Po upewnieniu się, że baza danych działa poprawnie i jest uruchomiona, wykonaj następujące polecenia w konsoli, aby zainstalować wymagane moduły, skonfigurować bazę danych i uruchomić aplikację:
 
 ```bash
 npm install
@@ -24,7 +29,7 @@ npx prisma db seed
 npm run dev
 ```
 
-Teraz możesz otworzyć przeglądarkę internetową i wejść na stronę [http://localhost:3000](http://localhost:3000).
+Teraz możesz otworzyć przeglądarkę internetową i wejść na stronę localhost (domyślnie [http://localhost:3000](http://localhost:3000)).
 
 ## Jak korzystać z aplikacji
 
