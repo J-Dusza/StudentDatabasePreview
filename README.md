@@ -14,7 +14,8 @@ Aby połączyć się z działającą bazą danych, należy skonfigurować plik `
 4. Link który musisz zmodyfikować w pliku `.env` ma następujący schemat
    `"postgresql://[nazwa_użytkownika]:[hasło]@localhost:5432/[nazwa_bazy_danych]?schema=public"`
 
-###Jak pobrać npm i uruchomić aplikację
+### Jak pobrać npm i uruchomić aplikację
+
 Jeśli nie masz zainstalowanego menedżera pakietów npm pobierz go ze strony:
 [https://www.nodejs.org/en/download/](https://www.nodejs.org/en/download/)
 Aby upewnić się, że npm został zainstalowany poprawnie uruchom w konsoli komendę `npm -v`. Jeśli w konsoli pojawi się numer wersji npm, oznacza to, że npm został zainstalowany poprawnie.
