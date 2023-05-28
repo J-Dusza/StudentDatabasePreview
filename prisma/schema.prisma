@@ -15,7 +15,7 @@ model Grupa {
 
 model Student {
   id       String   @id @default(cuid())
-  nazwisko String   @default("")
+  nazwisko String
   imie     String
   srednia  Float
   grupa    Grupa?   @relation(fields: [id_grupa], references: [id])

@@ -6,6 +6,7 @@ import View2 from "./View2";
 import View3 from "./View3";
 import View3_2 from "./View3_2";
 import View4 from "./View4";
+import Hint from "@/shared/components/Hint";
 
 export default function Home() {
   const [view, setView] = useState("1");
@@ -89,6 +90,8 @@ export default function Home() {
           </ul>
         </div>
       </div>
+
+      <Hint />
 
       <div className=""></div>
       {view === "1" && <View1 />}

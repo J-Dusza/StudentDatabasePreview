@@ -23,6 +23,12 @@ const View4 = () => {
   const [sort, setSort] = useState<string | undefined>(undefined);
   const [direction, setDirection] = useState<boolean>(false);
 
+  const fields = [
+    { display: "Imię", value: "firstname" },
+    { display: "Nazwisko", value: "lastname" },
+    { display: "Średnia", value: "avarage" },
+  ];
+
   useEffect(() => {
     getStudentsAboveAvarage(sort, direction).then((response) => {
       setStudents(response.students);
@@ -40,41 +46,23 @@ const View4 = () => {
   };
 
   return (
-    <div className="overflow-x-auto w-screen px-20 max-w-4xl">
+    <div className="overflow-x-auto w-screen px-20 max-w-8xl">
       <table className="table w-full">
         {/* head */}
         <thead>
           <tr>
-            <th>
-              <SortButton
-                value="firstname"
-                sort={sort}
-                direction={direction}
-                onSortChange={onSortChange}
-              >
-                Imię
-              </SortButton>
-            </th>
-            <th>
-              <SortButton
-                value="lastname"
-                sort={sort}
-                direction={direction}
-                onSortChange={onSortChange}
-              >
-                Nazwisko
-              </SortButton>
-            </th>
-            <th>
-              <SortButton
-                value="avarage"
-                sort={sort}
-                direction={direction}
-                onSortChange={onSortChange}
-              >
-                Śreednia
-              </SortButton>
-            </th>
+            {fields.map((field) => (
+              <th key={field.value}>
+                <SortButton
+                  value={field.value}
+                  sort={sort}
+                  direction={direction}
+                  onSortChange={onSortChange}
+                >
+                  {field.display}
+                </SortButton>
+              </th>
+            ))}
           </tr>
         </thead>
         <tbody>
